@@ -1,0 +1,22 @@
+<script>
+    /** 
+     * runner가 실행되는 시점에서 디버깅을 해보자.
+     * Scope에 대한 명세를 확인해보면 Closure (getNumber)가 있고, 그 안에 number 변수가 있는 것을 확인할 수 있다.
+     * 이렇게 하위 함수가 상위 함수보다 나중에 실행될 때도 Lexical Scope를 따라 상위 함수의 변수를 가져오게 된다.
+     * 이렇게 상위 함수가 종료되고 하위 함수를 나중에 실행할 수 있는 기능을 Closure라고 한다.
+    */
+
+    function getNumber(){
+        var number = 5;
+
+        function innerGetNumber(){
+            return number;
+        }
+
+        return innerGetNumber;
+    }
+
+    var runner = getNumber();
+
+    console.log(runner());
+</script>
