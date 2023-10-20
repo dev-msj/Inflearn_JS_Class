@@ -1,0 +1,24 @@
+<script>
+    /** 
+     * Open with Live Server를 실행 후 1번 라인을 마킹하여 새로고침을 해보자.
+     * 그리고 소스코드 오른쪽에서 Global 객체의 명세를 출력해보자.
+     * 그러면 number1, number2, multiply, result1, result2가 이미 생성되어 있을 것이다..
+     * 즉, Execution Phase 전에 Creation Phase에서 미리 변수와 함수를 등록한다는 것을 확인할 수 있다.
+     *    -> Hoisting이 발생하는 원인.
+     * 
+     * multiply 함수에 진입하게 됐을 때, 오른쪽에서 Local에 대한 명세를 확인해보자.
+     * result가 undefined로 생성되어 있는 것(Hoisting)을 확인할 수 있다.
+    */
+
+    var number1 = 20;
+    var number2 = 30;
+
+    function multiply(x, y) {
+        var result = x * y;
+
+        return result;
+    }
+
+    var result1 = multiply(number1, number2);
+    var result2 = multiply(100, 200);
+</script>
